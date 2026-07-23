@@ -34,7 +34,7 @@ const analyze = async () => {
           <h3>粘贴文本内容</h3>
           <textarea v-model="inputText" class="big-textarea" placeholder="将你的小说文本粘贴到这里，AI 将帮你分析结构并智能拆分章节..." rows="12"></textarea>
           <button class="action-btn" @click="analyze" :disabled="!inputText.trim() || loading">
-            {{ loading ? '分析中...' : '🔍 开始分析' }}
+            {{ loading ? '分析中...' : '开始分析' }}
           </button>
         </div>
         <div v-if="result" class="result-section">

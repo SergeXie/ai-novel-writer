@@ -129,19 +129,19 @@ const handleKeydown = (e: KeyboardEvent) => {
       <!-- 顶部菜单 -->
       <div class="sidebar-menu">
         <button class="menu-btn" @click="newConversation">
-          <span class="icon">✏️</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></span>
           <span class="text" v-if="!sidebarCollapsed">新对话</span>
         </button>
         <button class="menu-btn">
-          <span class="icon">🔍</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
           <span class="text" v-if="!sidebarCollapsed">搜索</span>
         </button>
         <button class="menu-btn">
-          <span class="icon">📅</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
           <span class="text" v-if="!sidebarCollapsed">已安排</span>
         </button>
         <button class="menu-btn">
-          <span class="icon">🧩</span>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
           <span class="text" v-if="!sidebarCollapsed">插件</span>
         </button>
       </div>
@@ -151,7 +151,7 @@ const handleKeydown = (e: KeyboardEvent) => {
         <div class="section-title">项目</div>
         <div v-for="project in projects" :key="project.name" class="project-group">
           <div class="project-name">
-            <span class="icon">📁</span>
+            <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
             {{ project.name }}
           </div>
           <div 
@@ -185,7 +185,7 @@ const handleKeydown = (e: KeyboardEvent) => {
       <!-- 底部设置 -->
       <div class="sidebar-footer">
         <div class="settings-btn">
-          <span class="avatar">⚙️</span>
+          <span class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
           <div class="settings-info" v-if="!sidebarCollapsed">
             <div class="settings-title">设置</div>
             <div class="settings-sub">账户</div>
@@ -199,12 +199,12 @@ const handleKeydown = (e: KeyboardEvent) => {
       <!-- 顶部标题栏 -->
       <header class="top-bar">
         <button class="toggle-btn" @click="toggleSidebar">
-          {{ sidebarCollapsed ? '☰' : '✕' }}
+          {{ sidebarCollapsed ? '≡' : '×' }}
         </button>
         <h1 class="app-title">AI 小说创作助手</h1>
         <div class="top-actions">
-          <button class="action-btn">📊</button>
-          <button class="action-btn">⚙️</button>
+          <button class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></button>
+          <button class="action-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
         </div>
       </header>
 
@@ -227,7 +227,7 @@ const handleKeydown = (e: KeyboardEvent) => {
             :class="msg.role"
           >
             <div class="message-avatar">
-              {{ msg.role === 'user' ? '👤' : '🤖' }}
+              {{ msg.role === 'user' ? 'U' : 'AI' }}
             </div>
             <div class="message-content">
               {{ msg.content }}
@@ -245,7 +245,7 @@ const handleKeydown = (e: KeyboardEvent) => {
             :key="index"
             class="context-tag"
           >
-            <span class="tag-icon">📁</span>
+            <span class="tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
             {{ item.name }}
             <button class="tag-remove" @click="contextItems.splice(index, 1)">×</button>
           </div>
@@ -270,7 +270,7 @@ const handleKeydown = (e: KeyboardEvent) => {
                 <span>+</span>
               </button>
               <button class="toolbar-btn" title="请求批准">
-                <span>🔑</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
                 <span class="btn-text">请求批准</span>
                 <span class="dropdown-arrow">▼</span>
               </button>

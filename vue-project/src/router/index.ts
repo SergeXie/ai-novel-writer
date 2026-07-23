@@ -9,8 +9,6 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'home', component: HomeView },
     { path: '/about', name: 'about', component: () => import('../views/AboutView.vue') },
-    { path: '/counter', name: 'counter', component: () => import('../views/CounterView.vue') },
-    { path: '/todo', name: 'todo', component: () => import('../views/TodoView.vue') },
     { path: '/novel', name: 'novel-list', component: () => import('../views/NovelListView.vue') },
     { path: '/novel/:id', name: 'novel-editor', component: () => import('../views/NovelEditorView.vue') },
     { path: '/snippets', name: 'snippets', component: () => import('../views/SnippetsView.vue') },

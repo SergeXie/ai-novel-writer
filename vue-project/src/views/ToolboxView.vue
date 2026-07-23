@@ -6,12 +6,12 @@
 import AppSidebar from '../components/AppSidebar.vue'
 
 const tools = [
-  { icon: '📊', name: '字数统计', desc: '统计文本字数、句数、段落数', color: '#3b82f6' },
-  { icon: '🔄', name: '同义词替换', desc: '智能替换重复用词', color: '#8b5cf6' },
-  { icon: '📝', name: '错别字检测', desc: '检查文本中的错别字', color: '#ef4444' },
-  { icon: '🎭', name: '角色名生成', desc: '生成各类角色名字', color: '#f59e0b' },
-  { icon: '🌍', name: '世界观模板', desc: '世界观设定参考模板', color: '#10b981' },
-  { icon: '💬', name: '对话润色', desc: '优化对话表达', color: '#ec4899' },
+  { icon: 'chart', name: '字数统计', desc: '统计文本字数、句数、段落数', color: '#3b82f6' },
+  { icon: 'refresh', name: '同义词替换', desc: '智能替换重复用词', color: '#8b5cf6' },
+  { icon: 'pen', name: '错别字检测', desc: '检查文本中的错别字', color: '#ef4444' },
+  { icon: 'mask', name: '角色名生成', desc: '生成各类角色名字', color: '#f59e0b' },
+  { icon: 'globe', name: '世界观模板', desc: '世界观设定参考模板', color: '#10b981' },
+  { icon: 'message', name: '对话润色', desc: '优化对话表达', color: '#ec4899' },
 ]
 </script>
 

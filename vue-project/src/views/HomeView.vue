@@ -15,25 +15,20 @@ function goToAbout() {
 
 <template>
   <div class="home">
-    <h1>🎉 欢迎来到 Vue 学习项目！</h1>
+    <h1>欢迎来到 Vue 学习项目！</h1>
     
     <div class="intro">
       <p>这是一个帮助你学习 Vue 3 的示例项目，包含了以下核心概念：</p>
       
       <div class="feature-grid">
         <div class="feature-card" @click="goToAbout">
-          <h3>📖 Vue 3 基础</h3>
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="vertical-align: -3px"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Vue 3 基础</h3>
           <p>组件、模板语法、响应式数据</p>
         </div>
         
-        <div class="feature-card" @click="router.push({ name: 'counter' })">
-          <h3>🔢 计数器示例</h3>
-          <p>事件处理、计算属性、Pinia 状态管理</p>
-        </div>
-        
-        <div class="feature-card" @click="router.push({ name: 'todo' })">
-          <h3>📝 待办事项</h3>
-          <p>列表渲染、表单处理、条件渲染</p>
+        <div class="feature-card" @click="router.push({ name: 'novel-list' })">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="vertical-align: -3px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> AI 小说</h3>
+          <p>AI 辅助创作、章节管理、智能拆书</p>
         </div>
       </div>
     </div>

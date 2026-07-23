@@ -68,6 +68,10 @@ export interface Chapter {
   title: string
   content: string | null
   chapter_number: number
+  node_type: 'folder' | 'chapter'
+  parent_id: string | null
+  is_expanded: boolean
+  sort_order: number
   word_count: number
   status: string
   project_id: string
@@ -176,14 +180,17 @@ export const getChapter = async (
 }
 
 /**
- * 创建章节
+ * 创建章节/文件夹
  */
 export const createChapter = async (
   projectId: string,
   data: {
     title: string
     content?: string
-    chapter_number: number
+    chapter_number?: number
+    node_type?: 'folder' | 'chapter'
+    parent_id?: string | null
+    sort_order?: number
   }
 ): Promise<Chapter> => {
   return request<Chapter>(`/projects/${projectId}/chapters`, {
@@ -193,7 +200,7 @@ export const createChapter = async (
 }
 
 /**
- * 更新章节
+ * 更新章节/文件夹
  */
 export const updateChapter = async (
   projectId: string,
@@ -202,6 +209,10 @@ export const updateChapter = async (
     title?: string
     content?: string
     chapter_number?: number
+    node_type?: 'folder' | 'chapter'
+    parent_id?: string | null
+    is_expanded?: boolean
+    sort_order?: number
     status?: string
   }
 ): Promise<Chapter> => {
@@ -248,7 +259,8 @@ export interface ChatResponse {
 export const sendChatMessage = async (
   message: string,
   conversationId?: string,
-  projectId?: string
+  projectId?: string,
+  context?: string[]
 ): Promise<ChatResponse> => {
   return request<ChatResponse>('/chat', {
     method: 'POST',
@@ -256,6 +268,7 @@ export const sendChatMessage = async (
       message,
       conversation_id: conversationId,
       project_id: projectId,
+      context: context,
     }),
   })
 }
@@ -267,7 +280,8 @@ export const streamChatMessage = async (
   message: string,
   onChunk: (content: string) => void,
   conversationId?: string,
-  projectId?: string
+  projectId?: string,
+  context?: string[]
 ): Promise<void> => {
   const token = getToken()
   const response = await fetch(`${API_BASE}/chat/stream`, {
@@ -280,6 +294,7 @@ export const streamChatMessage = async (
       message,
       conversation_id: conversationId,
       project_id: projectId,
+      context: context,
     }),
   })
 

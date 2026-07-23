@@ -193,21 +193,27 @@ async def create_chapter(
     if project.owner_id != current_user["id"]:
         raise HTTPException(status_code=403, detail="无权修改此项目")
 
-    # 检查章节编号是否重复
-    existing = await db.execute(
-        select(NovelChapter).where(
-            NovelChapter.project_id == project_id,
-            NovelChapter.chapter_number == chapter_data.chapter_number,
+    # 检查章节编号是否重复（仅对实际章节检查）
+    if chapter_data.chapter_number > 0:
+        existing = await db.execute(
+            select(NovelChapter).where(
+                NovelChapter.project_id == project_id,
+                NovelChapter.chapter_number == chapter_data.chapter_number,
+                NovelChapter.node_type == 'chapter',
+            )
         )
-    )
-    if existing.scalar_one_or_none():
-        raise HTTPException(status_code=400, detail="该章节编号已存在")
+        if existing.scalar_one_or_none():
+            raise HTTPException(status_code=400, detail="该章节编号已存在")
 
-    # 创建章节
+    # 创建章节/文件夹
     chapter = NovelChapter(
         title=chapter_data.title,
         content=chapter_data.content,
         chapter_number=chapter_data.chapter_number,
+        node_type=chapter_data.node_type,
+        parent_id=chapter_data.parent_id,
+        is_expanded=chapter_data.is_expanded,
+        sort_order=chapter_data.sort_order,
         word_count=len(chapter_data.content) if chapter_data.content else 0,
         project_id=project_id,
     )
@@ -319,4 +325,15 @@ async def delete_chapter(
     if not chapter:
         raise HTTPException(status_code=404, detail="章节不存在")
 
+    # 递归删除子节点（SQLite 不支持 ON DELETE CASCADE，需要手动处理）
+    async def delete_children(parent_id: str):
+        children_result = await db.execute(
+            select(NovelChapter).where(NovelChapter.parent_id == parent_id)
+        )
+        children = list(children_result.scalars().all())
+        for child in children:
+            await delete_children(child.id)
+            await db.delete(child)
+
+    await delete_children(chapter_id)
     await db.delete(chapter)

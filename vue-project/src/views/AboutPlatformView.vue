@@ -12,7 +12,7 @@ import AppSidebar from '../components/AppSidebar.vue'
       <header class="page-header"><h1 class="page-title">关于平台</h1></header>
       <div class="tool-container">
         <div class="about-card">
-          <div class="about-logo">✏️</div>
+          <div class="about-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="40" height="40"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
           <h1>AI 小说创作平台</h1>
           <p class="version">v1.0.0</p>
           <div class="about-desc">
@@ -20,10 +20,10 @@ import AppSidebar from '../components/AppSidebar.vue'
             <p>通过 AI 技术，我们提供章节生成、内容润色、结构分析等功能，让创作变得更加轻松。</p>
           </div>
           <div class="features">
-            <div class="feature"><span>📁</span><span>作品管理</span></div>
-            <div class="feature"><span>🤖</span><span>AI 辅助创作</span></div>
-            <div class="feature"><span>📋</span><span>词条管理</span></div>
-            <div class="feature"><span>📖</span><span>智能拆书</span></div>
+            <div class="feature"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span><span>作品管理</span></div>
+            <div class="feature"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg></span><span>AI 辅助创作</span></div>
+            <div class="feature"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></span><span>词条管理</span></div>
+            <div class="feature"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span>智能拆书</span></div>
           </div>
         </div>
       </div>

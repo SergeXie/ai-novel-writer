@@ -76,7 +76,7 @@ onMounted(() => loadSnippets())
       <div v-if="loading" class="loading-state"><div class="spinner"></div></div>
 
       <div v-else-if="snippets.length === 0" class="empty-state">
-        <div class="empty-icon">📋</div>
+        <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
         <h3>还没有词条</h3>
         <p>创建词条来管理你小说中的设定和术语</p>
       </div>

@@ -18,14 +18,14 @@ const total = ref(0)
 // 分类
 const activeCategory = ref('')
 const categories = [
-  { id: '', label: '全部', icon: '📋' },
-  { id: '角色塑造', label: '角色塑造', icon: '👤' },
-  { id: '情节构思', label: '情节构思', icon: '📖' },
-  { id: '世界观', label: '世界观', icon: '🌍' },
-  { id: '对话润色', label: '对话润色', icon: '💬' },
-  { id: '改写优化', label: '改写优化', icon: '✏️' },
-  { id: '大纲生成', label: '大纲生成', icon: '📝' },
-  { id: '其他', label: '其他', icon: '📁' },
+  { id: '', label: '全部', icon: 'clipboard' },
+  { id: '角色塑造', label: '角色塑造', icon: 'user' },
+  { id: '情节构思', label: '情节构思', icon: 'book' },
+  { id: '世界观', label: '世界观', icon: 'globe' },
+  { id: '对话润色', label: '对话润色', icon: 'message' },
+  { id: '改写优化', label: '改写优化', icon: 'edit' },
+  { id: '大纲生成', label: '大纲生成', icon: 'list' },
+  { id: '其他', label: '其他', icon: 'folder' },
 ]
 
 // 弹窗状态
@@ -156,7 +156,7 @@ onMounted(() => loadPrompts())
     <main class="content-area">
       <header class="page-header">
         <div class="header-left">
-          <h1 class="page-title">✨ 提示词广场</h1>
+          <h1 class="page-title">提示词广场</h1>
           <span class="count-badge">{{ total }}</span>
         </div>
         <button class="create-btn" @click="openCreate">
@@ -183,7 +183,7 @@ onMounted(() => loadPrompts())
 
       <!-- 空状态 -->
       <div v-else-if="prompts.length === 0" class="empty-state">
-        <div class="empty-icon">✨</div>
+        <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="48" height="48"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3>暂无提示词</h3>
         <p>点击「创建提示词」添加你的第一个提示词模板</p>
       </div>
@@ -205,9 +205,9 @@ onMounted(() => loadPrompts())
           <div class="card-footer">
             <div class="card-stats">
               <span class="stat-item" @click="handleLike(p, $event)">
-                ❤️ {{ p.like_count }}
+                ♥ {{ p.like_count }}
               </span>
-              <span class="stat-item">👁️ {{ p.usage_count }}</span>
+              <span class="stat-item">▸ {{ p.usage_count }}</span>
             </div>
             <div class="card-actions">
               <button
@@ -215,10 +215,10 @@ onMounted(() => loadPrompts())
                 :class="{ copied: copiedId === p.id }"
                 @click="copyPrompt(p, $event)"
               >
-                {{ copiedId === p.id ? '✓' : '📋' }}
+                {{ copiedId === p.id ? '✓' : '⧉' }}
               </button>
-              <button class="action-btn edit-btn" @click="openEdit(p, $event)">✏️</button>
-              <button class="action-btn delete-btn" @click="handleDelete(p.id, $event)">🗑️</button>
+              <button class="action-btn edit-btn" @click="openEdit(p, $event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+              <button class="action-btn delete-btn" @click="handleDelete(p.id, $event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
             </div>
           </div>
         </div>
@@ -284,11 +284,11 @@ onMounted(() => loadPrompts())
               <p class="dialog-desc">{{ selectedPrompt?.description }}</p>
               <label class="dialog-label">提示词内容（可编辑后复制）</label>
               <textarea v-model="useContent" class="form-textarea" rows="12"></textarea>
-              <p class="dialog-hint">💡 修改 [方括号] 中的内容为你的具体内容，然后复制使用</p>
+              <p class="dialog-hint">修改 [方括号] 中的内容为你的具体内容，然后复制使用</p>
             </div>
             <div class="dialog-footer">
               <button class="cancel-btn" @click="showUseDialog = false">关闭</button>
-              <button class="submit-btn" @click="copyContent">📋 复制提示词</button>
+              <button class="submit-btn" @click="copyContent">复制提示词</button>
             </div>
           </div>
         </div>
